@@ -91,7 +91,12 @@ header{
     justify-content: center;
     flex-flow: column;
     text-align: center;
+    /* overflow-y: scroll;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;  */
+    overflow-x: scroll;
 }
+header::-webkit-scrollbar { width: 0 !important }
 
 header .user .profile-image{
     height:17rem;
@@ -486,4 +491,16 @@ header .navbar ul li a:hover{
         margin:3rem 0;
     }
 
+ }
+
+ @media screen and (max-height: 680px) {
+    header{
+        padding-top: 150px;
+    }
+ }
+
+ @media screen and (max-height: 500px) {
+    header{
+        padding-top: 200px;
+    }
  }
