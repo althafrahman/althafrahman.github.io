@@ -1,9 +1,11 @@
 $(document).ready(function () {
 
-    let myAge = getAge();
-
+    const myDOB = '1998-01-20'
+    const mycareerStartDate = '2019-06-20'
+    const myAge = getYearDiffrence(myDOB);
+    const myExperience = getYearDiffrence(mycareerStartDate)
     $('#myAge').html(myAge);
-
+    $('.myExperience').html(myExperience)
     $('#menu').click(function () {
         $(this).toggleClass('fa-times');
         $('header').toggleClass('toggle');
@@ -29,9 +31,7 @@ $(document).ready(function () {
         e.preventDefault();
 
         $('html, body').animate({
-
             scrollTop: $($(this).attr('href')).offset().top,
-
         },
             500,
             'linear'
@@ -44,8 +44,8 @@ $(document).ready(function () {
 
 });
 
-function getAge(from, to) {
-    let date1 = new Date('1998-01-20');
+function getYearDiffrence(initialyear) {
+    let date1 = new Date(initialyear);
     let date2 = new Date(Date.now());
     let yearsDiff = date2.getFullYear() - date1.getFullYear();
     return yearsDiff;

@@ -1,2 +1,2 @@
 # portfolio
-My Carrer portfolio
+My portfolio as an experienced frontend developer
