@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     const myDOB = '1998-01-20'
     const mycareerStartDate = '2019-06-20'
-    const myAge = getYearDiffrence(myDOB);
+    const myAge = getYearDiffrence(myDOB, true);
     const myExperience = getYearDiffrence(mycareerStartDate)
     $('#myAge').html(myAge);
     $('.myExperience').html(myExperience)
@@ -44,9 +44,13 @@ $(document).ready(function () {
 
 });
 
-function getYearDiffrence(initialyear) {
-    let date1 = new Date(initialyear);
-    let date2 = new Date(Date.now());
-    let yearsDiff = date2.getFullYear() - date1.getFullYear();
-    return yearsDiff;
+function getYearDiffrence(initialyear, isAge = false) {
+    const date1 = new Date(initialyear);
+    const date2 = new Date(Date.now());
+    const diff = Math.floor(date1.getTime() - date2.getTime());
+    const day = 1000 * 60 * 60 * 24;
+    const days = Math.floor(diff / day);
+    const months = Math.floor(days / 31)
+    const yearDiff =  (Math.abs(months / 12) % 1 !== 0 && !isAge) ? Math.floor(Math.abs(months / 12))+'+' : Math.floor(Math.abs(months / 12))
+    return yearDiff;
 }
